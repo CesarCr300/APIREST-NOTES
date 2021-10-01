@@ -3,9 +3,11 @@ import { validateToken } from "../middlewares"
 import * as controllers from "./controllers"
 const router = Router()
 
+router.use(validateToken)
+
 router.route("/")
-    .get(validateToken, controllers.getNotes)
-    .post(validateToken, controllers.postNote)
+    .get(controllers.getNotes)
+    .post(controllers.postNote)
 
 router.route("/:noteId")
     .get(controllers.getNote)

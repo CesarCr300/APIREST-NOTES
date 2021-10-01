@@ -17,7 +17,8 @@ const schema = new Schema({
         type: String,
         unique: true
     },
-    roles: [{ ref: "Role", type: Schema.Types.ObjectId }]
+    roles: [{ ref: "Role", type: Schema.Types.ObjectId }],
+    notes: [{ ref: "Note", type: Schema.Types.ObjectId }]
 }, { timestamps: true, versionKey: false })
 
 schema.statics.createPassword = async function(password) {
