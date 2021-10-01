@@ -8,17 +8,9 @@ export const getNotes = async(req, res, next) => {
 }
 export const getNote = async(req, res, next) => {
     const user = await User.findById(req.idUser).populate("notes")
-    const notesByUser = user.notes
     const { noteId } = req.params
-    for (let i = 0; i < notesByUser.length; i++) {
-        if (notesByUser[i]._id.equals(noteId)) {
-            console.log(noteId)
-            const note = await Note.findById(noteId)
-            console.log(note)
-            return res.status(200).json(note)
-        }
-    }
-    res.status(404).json({ message: "You need a valid id" })
+    const note = await Note.findById(noteId)
+    return res.status(200).json(note)
 }
 export const postNote = async(req, res, next) => {
     const user = await User.findById(req.idUser)
@@ -37,6 +29,9 @@ export const updateNote = async(req, res, next) => {
 }
 export const destroyNote = async(req, res, next) => {
     const { noteId } = req.params
+    const user = await User.findById(req.idUser)
     const note = await Note.findByIdAndDelete(noteId, { new: true })
+    user.notes.splice(noteId, 1)
+    await user.save()
     res.json({ note, message: `Note deleted` })
 }

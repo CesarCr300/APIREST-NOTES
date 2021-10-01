@@ -1,3 +1,4 @@
 import { validateToken } from "./isToken"
+import { isUser } from "./isUser"
 
-export { validateToken }
+export { validateToken, isUser }
