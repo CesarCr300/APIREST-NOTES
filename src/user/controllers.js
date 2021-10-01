@@ -2,6 +2,7 @@ import { User } from "./model"
 import { Role } from "../roles/model"
 import jwt from "jsonwebtoken"
 import config from "../config"
+
 export const postUser = async(req, res, next) => {
     const { email, username, password, roles } = req.body;
     let newUser = await User({

@@ -1,10 +1,11 @@
 import { Router } from 'express'
+import { validateToken } from "../middlewares"
 import * as controllers from "./controllers"
 const router = Router()
 
 router.route("/")
-    .get(controllers.getNotes)
-    .post(controllers.postNote)
+    .get(validateToken, controllers.getNotes)
+    .post(validateToken, controllers.postNote)
 
 router.route("/:noteId")
     .get(controllers.getNote)
