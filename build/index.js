@@ -13,5 +13,5 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 console.log(_app.default.get('port'));
 
 _app.default.listen(_app.default.get('port'), () => {
-  console.log("Listen");
+  console.log("Listening");
 });
