@@ -13,6 +13,6 @@ import userRouter from "./user/routes"
 
 app.use("/api/notes", noteRouter)
 app.use("/api/user", userRouter)
-app.get("/", (req, res) => {})
+app.get("/", (req, res) => {res.send("Home")})
 
 export default app;
