@@ -24,6 +24,6 @@ app.use(_express.default.urlencoded({
 
 app.use("/api/notes", _routes.default);
 app.use("/api/user", _routes2.default);
-app.get("/", (req, res) => {});
+app.get("/", (req, res) => {res.send("Working")});
 var _default = app;
 exports.default = _default;
