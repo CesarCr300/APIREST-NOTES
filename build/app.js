@@ -20,7 +20,8 @@ app.use((0, _morgan.default)('tiny'));
 app.use(_express.default.json());
 app.use(_express.default.urlencoded({
   extended: true
-})); //routes
+}));
+app.set("port", process.env.PORT || 3000); //routes
 
 app.use("/api/notes", _routes.default);
 app.use("/api/user", _routes2.default);

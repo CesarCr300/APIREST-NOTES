@@ -6,6 +6,7 @@ const app = express();
 app.use(morgan('tiny'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+app.set("port", process.env.PORT || 3000);
 
 //routes
 import noteRouter from "./note/routes"
