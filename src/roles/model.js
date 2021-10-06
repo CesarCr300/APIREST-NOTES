@@ -1,5 +1,7 @@
 import { Schema, model } from 'mongoose'
-const roles = ['admin', 'user', 'moderator']
+// const roles = ['admin', 'user', 'moderator']
+//This is here if in the future I want add new Roles.
+const roles = ["user"]
 
 const schema = new Schema({
     name: {

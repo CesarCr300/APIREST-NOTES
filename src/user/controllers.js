@@ -36,7 +36,7 @@ export const generateToken = async(req, res, next) => {
         if (!isUser) return res.status(401).json({ "message": "Username or password are not corrects" })
 
         const token = await jwt.sign({ id: user._id }, config.JWT_SECRET, { expiresIn: 60 * 60 * 24 })
-        res.json(token)
+        res.json({ token })
     } catch (err) {
         res.status(401).json({ err: err.message })
     }

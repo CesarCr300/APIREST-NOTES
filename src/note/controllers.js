@@ -17,7 +17,6 @@ export const getNote = async(req, res, next) => {
         const note = await Note.findById(noteId)
         return res.status(200).json(note)
     } catch (err) { res.status(404).json({ err: err.message }) }
-
 }
 export const postNote = async(req, res, next) => {
     try {
@@ -31,7 +30,6 @@ export const postNote = async(req, res, next) => {
         await user.save()
         res.status(201).json(savedNote)
     } catch (err) { res.status(400).json({ error: err.message }) }
-
 }
 export const updateNote = async(req, res, next) => {
     try {
