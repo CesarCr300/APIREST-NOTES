@@ -13,14 +13,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 var isUser = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator(function* (req, res, next) {
-    var user = yield _model.User.find({
-      _id: req.idUser,
-      notes: req.params.noteId
-    });
-    if (user.length === 0) return res.status(404).json({
-      message: "You need a valid Note-Id"
-    });
-    next();
+    try {
+      var user = yield _model.User.find({
+        _id: req.idUser,
+        notes: req.params.noteId
+      });
+      if (user.length === 0) return res.status(404).json({
+        message: "You need a valid Note-Id"
+      });
+      next();
+    } catch (error) {
+      res.status(404).json({
+        message: "You need a valid Note-Id"
+      });
+    }
   });
 
   return function isUser(_x, _x2, _x3) {

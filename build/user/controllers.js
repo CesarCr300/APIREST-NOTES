@@ -95,7 +95,9 @@ var generateToken = /*#__PURE__*/function () {
       }, _config.default.JWT_SECRET, {
         expiresIn: 60 * 60 * 24
       });
-      res.json(token);
+      res.json({
+        token
+      });
     } catch (err) {
       res.status(401).json({
         err: err.message

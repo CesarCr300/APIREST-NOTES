@@ -21,7 +21,7 @@ var validateToken = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator(function* (req, res, next) {
     try {
       var token = req.headers["x-access-token"];
-      if (!token) return res.json({
+      if (!token) return res.status(401).json({
         message: "You need a token"
       });
 
